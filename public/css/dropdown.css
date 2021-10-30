@@ -1,0 +1,161 @@
+/* all nav */
+.navigation { position: relative; width: 100%; z-index: 9900; line-height: normal; }
+.navigation a { color: #777; }
+.navigation ul { margin: 0; padding: 0; text-align: center; }
+.navigation li { list-style: none; display: block; margin: 0; padding: 0; position: relative; line-height: normal; vertical-align: middle; }
+.navigation li a { padding: 15px; display: block; text-decoration: none; color: #777; font-size: inherit; font-family: inherit; box-sizing: border-box; -webkit-transition: all .3s ease-out; -moz-transition: all .3s ease-out; transition: all .3s ease-out; }
+
+/* main level */
+.navigation > ul > li { display: inline-block;  }
+.navigation > ul > li > a { padding: 20px 40px; }
+
+/* first level dd */
+.navigation ul ul { top: auto; width: 220px; position: absolute; z-index: 9900; text-align: left; display: none; background: #ddd; }
+.navigation li li { display: block; }
+
+/* second level dd */
+.navigation ul ul ul { top: 0; /* dd animtion - change to auto to remove */ left: 220px; }
+.navigation > ul > li:hover > ul > li:hover > ul { opacity: 1; visibility: visible; top: 0; }
+
+/* .drop-left */
+.navigation > ul > li.drop-left > ul { right: 0; }
+.navigation li.drop-left ul ul { left: auto; right: 220px; }
+
+/* light theme */
+.navigation.light { background: rgba(255, 255, 255, 1); }
+.navigation.light a { color: #000; }
+.navigation.light ul ul { background: rgba(255, 255, 255, 1); }
+.navigation.light li a { color: #000; }
+
+/* dark theme */
+.navigation.dark { background: rgba(0, 0, 0, 1); }
+.navigation.dark a { color: #FFF; }
+.navigation.dark ul ul { background: rgba(0, 0, 0, 1); }
+.navigation.dark li a { color: #FFF; }
+/* sticky nav */
+.navigation.fixed { position: fixed; width: 100%; top: 0; left: 0; z-index: 9999; }
+
+/* only used when 'scrollbarFix' is set to true in the js. This fixes horizontal scrollbar caused by the dd menus that are very long.*/
+body.navigation-noscroll-x { overflow-x: hidden; }
+
+/* general styling */
+.navigation li.has-sub > a:after { content: ''; margin-left: 10px; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 6px solid #FFF; display: inline-block; }
+.navigation li li.has-sub > a:after { margin-left: 10px; float: right; border-top: 6px solid transparent; border-bottom: 6px solid transparent; border-left: 6px solid #FFF; position: relative; top: 4px; }
+.navigation li.drop-left li.has-sub > a:after { float: left; margin-right: 10px; border-left: 0; border-top: 6px solid transparent; border-bottom: 6px solid transparent; border-right: 6px solid #FFF; }
+.navigation.hide-arrows li.has-sub > a:after, .navigation.hide-arrows li li.has-sub > a:after, .navigation.hide-arrows li.drop-left li.has-sub > a:after { display: none; }
+.navigation .menu-toggle, .navigation .close-menu, .navigation .call-btn-mobile, .navigation .location-btn-mobile { display: none; text-transform: uppercase; text-decoration: none; }
+.navigation .dd-toggle { display: none; position: absolute; top: 0; right: 0; padding: 0; width: 48px; height: 48px; text-align: center; z-index: 9999; border: 0; }
+.navigation.desktop li.has-sub a { padding-right: 5px; }
+.navigation.desktop.hide-arrows li.has-sub a { padding-right: 15px; }
+.navigation.mobile > ul > li > a.dd-toggle { padding: 0; }
+.navigation li.call-btn-mobile, .navigation li.location-btn-mobile { display: none; }
+
+/* svg icons */
+.navigation svg { fill: currentColor; width: 1em; height: 1em; position: relative; top: 2px; }
+/* svg icons */
+
+.navigation a.dd-toggle .icon-plus { box-sizing: border-box; transition: transform 0.3s; width: 12px; height: 100%; position: relative; vertical-align: middle; display: inline-block; }
+.navigation a.dd-toggle .icon-plus:before { content: ''; display: block; width: 12px; height: 0px; border-bottom: solid 3px #777; position: absolute; top: 50%; transform: rotate(90deg); transition: width 0.3s; }
+.navigation a.dd-toggle .icon-plus:after { content: ''; display: block; width: 12px; height: 0px; top: 50%; border-bottom: solid 3px #777; position: absolute; }
+.navigation li.open > a.dd-toggle .icon-plus { -webkit-transform: rotate(135deg); -ms-transform: rotate(135deg); -o-transform: rotate(135deg); transform: rotate(135deg); }
+.navigation.light a.dd-toggle .icon-plus:before { border-color: #000; }
+.navigation.light a.dd-toggle .icon-plus:after { border-color: #000; }
+.navigation.dark a.dd-toggle .icon-plus:before { border-color: #FFF; }
+.navigation.dark a.dd-toggle .icon-plus:after { border-color: #FFF; }
+
+.navigation .icon-close { box-sizing: border-box; width: 12px; height: 12px; position: relative; display: inline-block; }
+.navigation .icon-close:before { content: ''; display: block; width: 12px; height: 0px; border-bottom: solid 3px #777; position: absolute; top: 50%; transform: rotate(45deg); }
+.navigation .icon-close:after { content: ''; display: block; width: 12px; height: 0px; top: 50%; border-bottom: solid 3px #777; position: absolute; transform: rotate(-45deg); }
+.navigation.light .icon-close:before { border-color: #000; }
+.navigation.light .icon-close:after { border-color: #000; }
+.navigation.dark .icon-close:before { border-color: #FFF; }
+.navigation.dark .icon-close:after { border-color: #FFF; }
+
+/* mobile nav */
+.navigation .menu-toggle, .navigation .call-btn-mobile, .navigation .location-btn-mobile, .navigation .close-menu { padding: 15px; box-sizing: border-box; }
+.navigation .menu-toggle span.bars { display: inline-block; margin-right: 7px; position: relative; top: 3px; }
+.navigation .menu-toggle span.bars span { display: block; width: 15px; height: 2px; border-radius: 6px; background: #777; margin: 0 0 3px; }
+.navigation .full { width: 100%; }
+.navigation .half { width: 50%; }
+.navigation .third { width: 33%; text-align: center; }
+.navigation .location-btn-mobile.third { text-align: center; }
+.navigation .location-btn-mobile.half { text-align: right; }
+.navigation.light .third, .navigation.light .half { border-left: 1px solid rgba(0, 0, 0, .15); }
+.navigation.light.left .third, .navigation.light.left .half { border-bottom: 1px solid rgba(0, 0, 0, .15); }
+.navigation.light.right .third, .navigation.light.right .half { border-bottom: 1px solid rgba(0, 0, 0, .15); }
+.navigation.light .third:first-child, .navigation.light .half:first-child { border-left: 0; }
+.navigation.dark .third, .navigation.dark .half { border-left: 1px solid rgba(255, 255, 255, .15); }
+.navigation.dark.left .third, .navigation.dark.left .half { border-bottom: 1px solid rgba(255, 255, 255, .15); }
+.navigation.dark.right .third, .navigation.dark.right .half { border-bottom: 1px solid rgba(255, 255, 255, .15); }
+.navigation.light.left .menu-toggle, .navigation.light.right .menu-toggle { border-bottom: 0; }
+.navigation.dark.left .menu-toggle, .navigation.dark.right .menu-toggle { border-bottom: 0; }
+.navigation.dark .third:first-child, .navigation.dark .half:first-child { border-left: 0; }
+.navigation.light .menu-toggle span.bars span { background: #000; }
+.navigation.dark .menu-toggle span.bars span { background: #FFF; }
+.navigation.mobile { position: static; }
+.navigation.mobile.fixed { position: static; }
+.navigation.mobile ul { position: relative; display: none; }
+.navigation.mobile.active { padding-bottom: 0; }
+.navigation.mobile.active > ul { display: block; }
+.navigation.mobile ul { text-align: left; }
+.navigation.mobile > ul > li { display: block; }
+.navigation.mobile > ul > li > a { padding: 15px; }
+.navigation.mobile ul { background: rgba(221, 221, 221, 1); }
+.navigation.mobile ul ul { position: relative; opacity: 1; visibility: visible; width: auto; display: none; -moz-transition: none; -webkit-transition: none; -o-transition: color 0 ease-in; transition: none; }
+.navigation.mobile ul ul ul { left: auto; top: auto; }
+.navigation.mobile li.drop-left ul ul { right: auto; }
+.navigation.mobile li a { border-bottom: 1px solid rgba(255, 255, 255, .15); }
+.navigation.mobile > ul { border-top: 1px solid rgba(255, 255, 255, .15); }
+.navigation.mobile.light li a { border-bottom: 1px solid rgba(0, 0, 0, .15); }
+.navigation.mobile.light > ul { border-top: 1px solid rgba(0, 0, 0, .15); }
+.navigation.mobile li a.dd-toggle { border: 0; }
+.navigation.mobile.light li a.dd-toggle { border: 0; }
+.navigation.mobile .menu-toggle, .navigation.mobile .dd-toggle, .navigation.mobile .close-menu, .navigation.mobile .call-btn-mobile, .navigation.mobile .location-btn-mobile { display: inline-block; }
+.navigation.mobile li.call-btn-mobile { border-right: 1px solid rgba(255, 255, 255, .1); box-sizing: border-box; }
+.navigation.mobile li.call-btn-mobile, .navigation.mobile li.location-btn-mobile { display: inline-block; width: 50%; text-transform: uppercase; text-align: center; }
+.navigation.mobile li.call-btn-mobile.full, .navigation.mobile li.location-btn-mobile.full { display: block; width: 100%; text-transform: uppercase; border-right: 0; text-align: left; }
+.navigation.mobile.light ul { background: rgba(255, 255, 255, 1); }
+.navigation.mobile.dark ul { background: rgba(0, 0, 0, 1); }
+.navigation.mobile.dark ul ul { background: rgba(255, 255, 255, .08); }
+.navigation.mobile.light li.call-btn-mobile { border-right: 1px solid rgba(0, 0, 0, .1); }
+.navigation.mobile.top { position: absolute; width: 100%; top: 0; left: 0; z-index: 9999; }
+.navigation.mobile li.has-sub > a:after, .navigation.mobile li li.has-sub > a:after, .navigation.mobile li.drop-left li.has-sub > a:after { display: none; }
+
+/* left and right positions */
+.navigation.mobile.right > ul, .navigation.mobile.left > ul { position: fixed; top: 0; bottom: 0; width: 100%; max-width: 280px; overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.navigation.mobile.right > ul { right: 0; }
+.navigation.mobile.right .close-menu, .navigation.mobile.left .close-menu { display: inline-block; text-align: right; }
+.navigation.mobile.left > ul { left: 0; }
+.navigation.mobile.right .location-btn-mobile.half, .navigation.mobile.right .call-btn-mobile.half, .navigation.mobile.right .close-menu.half { text-align: center; }
+.navigation.mobile.right .location-btn-mobile.third, .navigation.mobile.right .call-btn-mobile.third, .navigation.mobile.right .close-menu.third { text-align: center; }
+.navigation.mobile.left .location-btn-mobile.half, .navigation.mobile.left .call-btn-mobile.half, .navigation.mobile.left .close-menu.half { text-align: center; }
+.navigation.mobile.left .location-btn-mobile.third, .navigation.mobile.left .call-btn-mobile.third, .navigation.mobile.left .close-menu.third { text-align: center; }
+.navigation.mobile.left .menu-toggle.half, .navigation.mobile.left .menu-toggle.third, .navigation.mobile.right .menu-toggle.half, .navigation.mobile.right .menu-toggle.third { text-align: left; }
+.navigation.mobile.left .close-menu.third span, .navigation.mobile.right .close-menu.third span { display: none; }
+/* left and right positions */
+
+/* mega dd */
+.navigation.desktop li.mega ul ul { background: none; }
+.navigation.desktop li.mega li { display: inline-block; vertical-align: top; margin-left: -4px; }
+.navigation.desktop li.mega li li { display: block; position: relative; left: 4px; }
+.navigation.desktop li.mega ul ul { width: auto; }
+.navigation.desktop > ul > li.mega { position: inherit; }
+.navigation.desktop > ul > li.mega > ul { width: 100%; }
+.navigation.desktop > ul > li.mega > ul li.has-sub ul { display: block; position: relative; left: auto; }
+.navigation.desktop > ul > li.mega > ul > li { padding-bottom: 15px; box-sizing: border-box; }
+.navigation.desktop li.mega li li a { padding: 5px 15px; }
+.navigation.desktop li.mega li.has-sub a:after { display: none; }
+.navigation.desktop > ul > li.mega > ul > li > a { color: yellow; }
+/* mega dd */
+
+
+/* Fallback for slow javascript load */
+@media only screen and (max-width : 768px) {
+    .navigation { overflow: hidden; display: block; }
+    .navigation ul { position: relative; display: none; }
+}
+
+/* mobile nav */
+@media only screen and (max-width : 420px) {
+    .navigation.mobile .call-btn-mobile.third span, .navigation.mobile .location-btn-mobile.third span { display: none; }
+}
